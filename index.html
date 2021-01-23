@@ -23,11 +23,11 @@
             <div class="col-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title font-weight-bold">Search for a City</h5>
+                        <h4 class="card-title font-weight-bold">Search for a City:</h4>
                         <form class="form-inline">
-                            <input class="form-control-md mr-sm-2" type="text" placeholder="City..." aria-label="Search"
+                            <input class="form-control-md mr-sm-2" id="citySearch" type="text" aria-label="Search"
                                 required>
-                            <button class="btn btn-primary fas fa-search" type="submit"></button>
+                            <button class="btn btn-primary fas fa-search" id="submitBtn" type="submit"></button>
                         </form>
                     </div>
                 </div>
@@ -35,11 +35,16 @@
             <div class="col-9">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title font-weight-bold">City Name</h5>
-                        <p class="card-text">Placeholder Temperature</p>
-                        <p class="card-text">Placeholder Humidity</p>
-                        <p class="card-text">Placeholder Wind speed</p>
-                        <p class="card-text">Placeholder UV index</p>
+                        <div>
+                            <h3 class="card-title font-weight-bold">City Name
+                                <span>Date</span>
+                                <span>Icon</span>
+                            </h3>
+                        </div>
+                        <p class="card-text">Temperature</p>
+                        <p class="card-text">Humidity</p>
+                        <p class="card-text">Wind speed</p>
+                        <p class="card-text">UV index</p>
                     </div>
                 </div>
                 <div class="row my-4 justify-content-center">
@@ -103,6 +108,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
