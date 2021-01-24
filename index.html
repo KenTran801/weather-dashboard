@@ -36,19 +36,20 @@
                 <div class="card">
                     <div class="card-body">
                         <div>
-                            <h3 class="card-title font-weight-bold">City Name
-                                <span>Date</span>
-                                <span>Icon</span>
+                            <h3 class="card-title font-weight-bold">
+                                <span id="mainCardCity">Use the search feature to display the current weather.</span>
+                                <span id="currentDate"></span>
+                                <span id="currentIcon"></span>
                             </h3>
                         </div>
-                        <p class="card-text">Temperature</p>
-                        <p class="card-text">Humidity</p>
-                        <p class="card-text">Wind speed</p>
-                        <p class="card-text">UV index</p>
+                        <p class="card-text" id="mainCardTemp"></p>
+                        <p class="card-text" id="mainCardHumid"></p>
+                        <p class="card-text" id="mainCardWind"></p>
+                        <p class="card-text" id="mainCardIndex"></p>
                     </div>
                 </div>
                 <div class="row my-4 justify-content-center">
-                    <h4 class="font-weight-bold">5-Day Forecast</h4>
+                    <h4 class="font-weight-bold" id="forecastTitle"></h4>
                 </div>
                 <div class="card-deck my-4">
                     <div class="card">
@@ -103,6 +104,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
