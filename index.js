@@ -45,7 +45,7 @@ $("#submitBtn").click(function (event) {
         var longitude = currentWeather.coord.lon
         console.log(longitude);
 
-        var uvIndexURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + " &lon=" + longitude + "&appid=346f5b9d83ff18900a4fdcdbc47dcbde";
+        var uvIndexURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=346f5b9d83ff18900a4fdcdbc47dcbde";
         // API 
         // https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
 
