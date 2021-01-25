@@ -29,7 +29,7 @@ $("#submitBtn").click(function (event) {
         $("#mainCardHumid").text("Humidity: " + mainCardHumidEl + "%");
         // Current wind speed
         var mainCardWindEl = currentWeather.wind.speed;
-        $("#mainCardWind").text("Wind Speed: " + mainCardWindEl + "MPH");
+        $("#mainCardWind").text("Wind Speed: " + mainCardWindEl + " MPH");
         // Header for 5-Day forecast
         $("#forecastTitle").text("5-Day Forecast");
         // adding icon image
@@ -85,10 +85,8 @@ $("#submitBtn").click(function (event) {
             $("#forecastTemp" + forecastItems).text("Temp: " + forecastEl.main.temp + "°F");
             // humidity
             $("#forecastHumid" + forecastItems).text("Humidity: " + forecastEl.main.humidity + "%");
-            // wind speed
-            $("#forecastWind" + forecastItems).text("Wind Speed: " + forecastEl.wind.speed + "MPH");
             // blue background color
-            $("#forecastCards" + forecastItems).addClass("text-white bg-primary")
+            $("#forecastCards" + forecastItems).addClass("text-white bg-primary card")
 
         }
 
