@@ -3,9 +3,10 @@ $("#submitBtn").click(function (event) {
     event.preventDefault();
     // created variable for search input
     var cityName = $("#citySearch").val().trim();
-    // url variaables for current/corecast weather
+    // url variaables for current/forecast weather
     var currentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=346f5b9d83ff18900a4fdcdbc47dcbde";
     var forecastWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=346f5b9d83ff18900a4fdcdbc47dcbde";
+    // current weather card and API 
     $.ajax({
         url: currentWeatherURL,
         method: "GET",
@@ -20,16 +21,16 @@ $("#submitBtn").click(function (event) {
         $("#currentDate").append(currentDateEl.format("M/D/YYYY"));
         // Current temp
         var mainCardTempEl = currentWeather.main.temp;
-        $("#mainCardTemp").text("Temperature: " + mainCardTempEl + "°F");
+        $("#mainCardTemp").text("Temperature: " + Math.floor(mainCardTempEl) + "°F");
         //  Current feels like temp
         var mainCardFeelsLikeEl = currentWeather.main.feels_like;
-        $("#mainCardFeelsLike").text("Feels Like: " + mainCardFeelsLikeEl + "°F");
+        $("#mainCardFeelsLike").text("Feels Like: " + Math.floor(mainCardFeelsLikeEl) + "°F");
         // Current humidity
         var mainCardHumidEl = currentWeather.main.humidity;
         $("#mainCardHumid").text("Humidity: " + mainCardHumidEl + "%");
         // Current wind speed
         var mainCardWindEl = currentWeather.wind.speed;
-        $("#mainCardWind").text("Wind Speed: " + mainCardWindEl + " MPH");
+        $("#mainCardWind").text("Wind Speed: " + Math.floor(mainCardWindEl) + " MPH");
         // Header for 5-Day forecast
         $("#forecastTitle").text("5-Day Forecast");
         // adding icon image
@@ -59,6 +60,7 @@ $("#submitBtn").click(function (event) {
             };
         });
     });
+    // forecast cards and API info
     $.ajax({
         url: forecastWeatherURL,
         method: "GET",
@@ -82,13 +84,29 @@ $("#submitBtn").click(function (event) {
             $("#forecastIcon" + forecastItems).empty();
             $("#forecastIcon" + forecastItems).append(forecastIconImg);
             // temperature
-            $("#forecastTemp" + forecastItems).text("Temp: " + forecastEl.main.temp + "°F");
+            $("#forecastTemp" + forecastItems).text("Temp: " + Math.floor(forecastEl.main.temp) + "°F");
             // humidity
             $("#forecastHumid" + forecastItems).text("Humidity: " + forecastEl.main.humidity + "%");
             // blue background color
             $("#forecastCards" + forecastItems).addClass("text-white bg-primary card")
-
         }
-
     });
+    // creating list based upon users search
+    var cityListEl = $("<button>");
+    cityListEl.addClass("list-group-item list-group-item-action");
+    cityListEl.attr("id", "cityListBtn")
+    cityListEl.text(cityName);
+    $("#cityList").append(cityListEl);
+    // local storage to save cities
+    if (cityName === "") {
+        return false;
+    } else {
+        var storeCity = JSON.parse(localStorage.getItem("storeCity")) || [];
+        storeCity.push(cityName);
+        localStorage.setItem("storeCity", JSON.stringify(storeCity));
+    }
+    $("#cityListEl").click(function() {
+    
+    });
+
 });
