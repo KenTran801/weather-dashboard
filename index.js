@@ -74,6 +74,7 @@ $("#submitBtn").click(function (event) {
             // Every 8 index score is a fulll day (3 * 8  = 24 hours)
             // Show noon forecast info at these items in the list 4, 12, 20, 28, 36
             var forecastEl = forecast.list[i];
+            // i needs to equal 1,2,3,4,5 to populate the cards
             var forecastItems = (i + 4) / 8;
             // Populate 5-day forecast cards
             var futureDate = moment().add(forecastItems, "days").format("M/D/YYYY");
