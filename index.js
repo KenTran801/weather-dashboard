@@ -14,10 +14,12 @@ $("#submitBtn").click(function (event) {
         // City name
         var mainCardCityEl = currentWeather.name
         $("#mainCardCity").text("");
+        $("#mainCardCity").addClass("text-white");
         $("#mainCardCity").append(mainCardCityEl);
         // Current date
         var currentDateEl = moment();
         $("#currentDate").text("");
+        $("#currentDate").addClass("text-white");
         $("#currentDate").append(currentDateEl.format("M/D/YYYY"));
         // Current temp
         var mainCardTempEl = currentWeather.main.temp;
@@ -33,6 +35,7 @@ $("#submitBtn").click(function (event) {
         $("#mainCardWind").text("Wind Speed: " + Math.floor(mainCardWindEl) + " MPH");
         // Header for 5-Day forecast
         $("#forecastTitle").text("5-Day Forecast");
+        $("#forecastTitle").addClass("text-white");
         // adding icon image
         var iconCode = currentWeather.weather[0].icon;
         var currentIconImg = $("<img>");
@@ -93,7 +96,7 @@ $("#submitBtn").click(function (event) {
     });
     // creating list based upon users search
     var cityListEl = $("<button>");
-    cityListEl.addClass("list-group-item list-group-item-action");
+    cityListEl.addClass("list-group-item list-group-item-action list-group-item-dark");
     cityListEl.attr("id", "cityListBtn")
     cityListEl.text(cityName);
     $("#cityList").append(cityListEl);

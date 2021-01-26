@@ -13,17 +13,17 @@
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 </head>
 
-<body class="bg-light">
+<body class="bg-secondary">
     <nav class="navbar navbar-dark bg-dark justify-content-center">
         <span class="h1 text-white font-weight-bold">Weather Dashboard</span>
     </nav>
 
-    <div class="container-fluid my-4">
+    <div class="container-fluid my-4 bg-secondary">
         <div class="row">
             <div class="col-3">
-                <div class="card">
+                <div class="card bg-dark">
                     <div class="card-body">
-                        <h4 class="card-title font-weight-bold">Search for a City:</h4>
+                        <h4 class="card-title font-weight-bold text-white">Search for a City:</h4>
                         <form class="form-inline">
                             <input class="form-control-md mr-sm-2" id="citySearch" type="text" aria-label="Search"
                                 required>
@@ -35,20 +35,20 @@
                 </div>
             </div>
             <div class="col-9">
-                <div class="card">
+                <div class="card bg-dark">
                     <div class="card-body">
                         <div>
-                            <h3 class="card-title font-weight-bold">
+                            <h3 class="card-title font-weight-bold text-white">
                                 <span id="mainCardCity">Use the search feature to display the current weather.</span>
                                 <span id="currentDate"></span>
                                 <span id="currentIcon"></span>
                             </h3>
                         </div>
-                        <p class="card-text" id="mainCardTemp"></p>
-                        <p class="card-text" id="mainCardFeelsLike"></p>
-                        <p class="card-text" id="mainCardHumid"></p>
-                        <p class="card-text" id="mainCardWind"></p>
-                        <p class="card-text" id="mainCardIndex"></p>
+                        <p class="card-text text-light" id="mainCardTemp"></p>
+                        <p class="card-text text-light" id="mainCardFeelsLike"></p>
+                        <p class="card-text text-light" id="mainCardHumid"></p>
+                        <p class="card-text text-light" id="mainCardWind"></p>
+                        <p class="card-text text-light" id="mainCardIndex"></p>
                     </div>
                 </div>
                 <div class="row my-4 justify-content-center">
