@@ -67,7 +67,7 @@ $("#submitBtn").click(function (event) {
     }).then(function (forecast) {
         console.log(forecast);
         for (let i = 4; i < forecast.list.length; i += 8) {
-            // Noon is the hottest time of the year, starting at 4 index to display noon
+            // Starting at 4 index to display noon
             // Every 8 index score is a fulll day (3 * 8  = 24 hours)
             // Show noon forecast info at these items in the list 4, 12, 20, 28, 36
             var forecastEl = forecast.list[i];
