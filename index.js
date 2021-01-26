@@ -37,6 +37,7 @@ $("#submitBtn").click(function (event) {
         $("#forecastTitle").text("5-Day Forecast");
         $("#forecastTitle").addClass("text-white");
         // adding icon image
+        // credit to Kelly Cook in posting the icon URL in Slack as reference
         var iconCode = currentWeather.weather[0].icon;
         var currentIconImg = $("<img>");
         currentIconImg.attr("src", "http://openweathermap.org/img/w/" + iconCode + ".png");
@@ -82,6 +83,7 @@ $("#submitBtn").click(function (event) {
             $("#forecastDate" + forecastItems).text("");
             $("#forecastDate" + forecastItems).append(futureDate);
             // icons
+            // credit to Kelly Cook in posting the icon URL in Slack as reference
             var forecastIconCode = forecastEl.weather[0].icon;
             var forecastIconImg = $("<img>");
             forecastIconImg.attr("src", "http://openweathermap.org/img/w/" + forecastIconCode + ".png");
