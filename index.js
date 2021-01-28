@@ -1,4 +1,4 @@
-// $("#forecastRow").empty();
+
 $("#submitBtn").click(function (event) {
     event.preventDefault();
     // created variable for search input
@@ -13,14 +13,10 @@ $("#submitBtn").click(function (event) {
     }).then(function (currentWeather) {
         // City name
         var mainCardCityEl = currentWeather.name
-        $("#mainCardCity").text("");
-        $("#mainCardCity").addClass("text-white");
-        $("#mainCardCity").append(mainCardCityEl);
+        $("#mainCardCity").text("").addClass("text-white").append(mainCardCityEl);
         // Current date
         var currentDateEl = moment();
-        $("#currentDate").text("");
-        $("#currentDate").addClass("text-white");
-        $("#currentDate").append(currentDateEl.format("M/D/YYYY"));
+        $("#currentDate").text("").addClass("text-white").append(currentDateEl.format("M/D/YYYY"));
         // Current temp
         var mainCardTempEl = currentWeather.main.temp;
         $("#mainCardTemp").text("Temperature: " + Math.floor(mainCardTempEl) + "°F");
@@ -34,15 +30,13 @@ $("#submitBtn").click(function (event) {
         var mainCardWindEl = currentWeather.wind.speed;
         $("#mainCardWind").text("Wind Speed: " + Math.floor(mainCardWindEl) + " MPH");
         // Header for 5-Day forecast
-        $("#forecastTitle").text("5-Day Forecast");
-        $("#forecastTitle").addClass("text-white");
+        $("#forecastTitle").text("5-Day Forecast").addClass("text-white");
         // adding icon image
         // credit to Kelly Cook in posting the icon URL in Slack as reference
         var iconCode = currentWeather.weather[0].icon;
         var currentIconImg = $("<img>");
         currentIconImg.attr("src", "http://openweathermap.org/img/w/" + iconCode + ".png");
-        $("#currentIcon").empty();
-        $("#currentIcon").append(currentIconImg);
+        $("#currentIcon").empty().append(currentIconImg);
         // longitude & latitude variables for index score api
         var latitude = currentWeather.coord.lat
         var longitude = currentWeather.coord.lon
@@ -53,8 +47,7 @@ $("#submitBtn").click(function (event) {
         }).then(function (uvIndex) {
             // console.log(uvIndex);
             var uvDisplay = $("<button>");
-            $("#mainCardIndex").text("UV Index: ")
-            $("#mainCardIndex").append(uvDisplay.text(uvIndex.current.uvi))
+            $("#mainCardIndex").text("UV Index: ").append(uvDisplay.text(uvIndex.current.uvi))
             if (uvIndex.current.uvi <= 2) {
                 uvDisplay.addClass("btn btn-success")
             } else if (uvIndex.current.uvi > 2 && uvIndex.current.uvi <= 6) {
@@ -80,15 +73,13 @@ $("#submitBtn").click(function (event) {
             // Populate 5-day forecast cards
             var futureDate = moment().add(forecastItems, "days").format("M/D/YYYY");
             // date
-            $("#forecastDate" + forecastItems).text("");
-            $("#forecastDate" + forecastItems).append(futureDate);
+            $("#forecastDate" + forecastItems).text("").append(futureDate);
             // icons
             // credit to Kelly Cook in posting the icon URL in Slack as reference
             var forecastIconCode = forecastEl.weather[0].icon;
             var forecastIconImg = $("<img>");
             forecastIconImg.attr("src", "http://openweathermap.org/img/w/" + forecastIconCode + ".png");
-            $("#forecastIcon" + forecastItems).empty();
-            $("#forecastIcon" + forecastItems).append(forecastIconImg);
+            $("#forecastIcon" + forecastItems).empty().append(forecastIconImg);
             // temperature
             $("#forecastTemp" + forecastItems).text("Temp: " + Math.floor(forecastEl.main.temp) + "°F");
             // humidity
@@ -98,7 +89,7 @@ $("#submitBtn").click(function (event) {
         }
     });
     // creating list button based upon users search
-    
+
     var cityListEl = $("<button>");
     // var clearBtn = $("<button>");
     // clearBtn.addClass("btn btn-warning");
@@ -118,8 +109,9 @@ $("#submitBtn").click(function (event) {
         storeCity.push(cityName);
         localStorage.setItem("storeCity", JSON.stringify(storeCity));
     }
-    $("#cityListEl").click(function (event) {
+    $("#cityListEl").click(function () {
         var recentCity = $(this).attr("data-value");
+        console.log(recentCity)
         event(recentCity);
     });
 });
