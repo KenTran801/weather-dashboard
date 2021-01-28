@@ -103,14 +103,13 @@ $("#submitBtn").click(function (event) {
         cityListEl.attr("data-value", cityName);
         cityListEl.text(cityName);
         $("#cityList").append(cityListEl);
-        // Local storage
-        var storeCity = JSON.parse(localStorage.getItem("storeCity")) || [];
-        storeCity.push(cityName);
-        localStorage.setItem("storeCity", JSON.stringify(storeCity));
     }
+    // Local storage still working on this logic will need assistance from TA or tutor
+    var storeCity = JSON.parse(localStorage.getItem("storeCity")) || [];
+    storeCity.push(cityName);
+    localStorage.setItem("storeCity", JSON.stringify(storeCity));
     $("#cityListEl").click(function () {
         var recentCity = $(this).attr("data-value");
-        console.log(recentCity)
-        event(recentCity);
+        $("#citySearch").text(recentCity);
     });
 });
