@@ -89,7 +89,6 @@ $("#submitBtn").click(function (event) {
         }
     });
     // creating list button based upon users search
-
     var cityListEl = $("<button>");
     // var clearBtn = $("<button>");
     // clearBtn.addClass("btn btn-warning");
