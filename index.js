@@ -98,29 +98,28 @@ $("#submitBtn").click(function (event) {
         }
     });
     // creating list button based upon users search
+    
     var cityListEl = $("<button>");
     // var clearBtn = $("<button>");
     // clearBtn.addClass("btn btn-warning");
     // clearBtn.text("Clear");
     // $("#formID").append(clearBtn);
-
     if (cityName === "") {
         alert("Field cannot be blank!")
         return false;
     } else {
         cityListEl.addClass("list-group-item list-group-item-action list-group-item-dark");
-        cityListEl.attr("id", "cityListBtn")
+        cityListEl.attr("id", "cityListBtn");
+        cityListEl.attr("data-value", cityName);
         cityListEl.text(cityName);
         $("#cityList").append(cityListEl);
-
-
         // Local storage
         var storeCity = JSON.parse(localStorage.getItem("storeCity")) || [];
         storeCity.push(cityName);
         localStorage.setItem("storeCity", JSON.stringify(storeCity));
     }
-    $("#cityListEl").click(function () {
-
+    $("#cityListEl").click(function (event) {
+        var recentCity = $(this).attr("data-value");
+        event(recentCity);
     });
-
 });
