@@ -3,6 +3,35 @@ $("#submitBtn").click(function (event) {
     event.preventDefault();
     // created variable for search input
     var cityName = $("#citySearch").val().trim();
+    getWeather(cityName)
+    // creating list button based upon users search
+    var cityListEl = $("<button>");
+    // var clearBtn = $("<button>");
+    // clearBtn.addClass("btn btn-warning");
+    // clearBtn.text("Clear");
+    // $("#formID").append(clearBtn);
+    if (cityName === "") {
+        alert("Field cannot be blank!")
+        return false;
+    } else {
+        cityListEl.addClass("list-group-item list-group-item-action list-group-item-dark");
+        cityListEl.attr("class", "cityListBtn");
+        cityListEl.attr("data-value", cityName);
+        cityListEl.text(cityName);
+        $("#cityList").append(cityListEl);
+    }
+    // Local storage still working on this logic will need assistance from TA or tutor
+    var storeCity = JSON.parse(localStorage.getItem("storeCity")) || [];
+    storeCity.push(cityName);
+    localStorage.setItem("storeCity", JSON.stringify(storeCity));
+});
+$("#cityList").on("click", ".cityListBtn", function () {
+    console.log("works");
+    var recentCity = $(this).attr("data-value");
+    getWeather(recentCity);
+});
+
+function getWeather(cityName) {
     // url variaables for current/forecast weather
     var currentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=346f5b9d83ff18900a4fdcdbc47dcbde";
     var forecastWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=346f5b9d83ff18900a4fdcdbc47dcbde";
@@ -88,28 +117,4 @@ $("#submitBtn").click(function (event) {
             $("#forecastCards" + forecastItems).addClass("text-white bg-primary card")
         }
     });
-    // creating list button based upon users search
-    var cityListEl = $("<button>");
-    // var clearBtn = $("<button>");
-    // clearBtn.addClass("btn btn-warning");
-    // clearBtn.text("Clear");
-    // $("#formID").append(clearBtn);
-    if (cityName === "") {
-        alert("Field cannot be blank!")
-        return false;
-    } else {
-        cityListEl.addClass("list-group-item list-group-item-action list-group-item-dark");
-        cityListEl.attr("id", "cityListBtn");
-        cityListEl.attr("data-value", cityName);
-        cityListEl.text(cityName);
-        $("#cityList").append(cityListEl);
-    }
-    // Local storage still working on this logic will need assistance from TA or tutor
-    var storeCity = JSON.parse(localStorage.getItem("storeCity")) || [];
-    storeCity.push(cityName);
-    localStorage.setItem("storeCity", JSON.stringify(storeCity));
-    $("#cityListEl").click(function () {
-        var recentCity = $(this).attr("data-value");
-        $("#citySearch").text(recentCity);
-    });
-});
+}
